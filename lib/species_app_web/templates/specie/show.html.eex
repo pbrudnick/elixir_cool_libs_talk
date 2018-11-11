@@ -1,0 +1,55 @@
+<h2>Ficha de especie</h2>
+
+<ul>
+
+  <img src="<%= @specie.picture %>" width="200" />
+
+  <li>
+    <strong>Name es:</strong>
+    <%= @specie.name_es %>
+  </li>
+
+  <li>
+    <strong>Name en:</strong>
+    <%= @specie.name_en %>
+  </li>
+
+  <li>
+    <strong>Name pt:</strong>
+    <%= @specie.name_pt %>
+  </li>
+
+  <li>
+    <strong>Scientific name:</strong>
+    <%= @specie.sci_name %>
+  </li>
+
+  <li>
+    <strong>Regions:</strong>
+    <%= @specie.regions %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @specie.status %>
+  </li>
+
+  <li>
+    <strong>Difficulty:</strong>
+    <%= @specie.difficulty %>
+  </li>
+
+  <li>
+    <strong>Song:</strong>
+    <a href="<%= @specie.song %>"><%= @specie.song %></a>
+  </li>
+
+  <li>
+    <strong>Active:</strong>
+    <%= @specie.active %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: specie_path(@conn, :edit, @specie) %></span>
+<span><%= link "Back", to: specie_path(@conn, :index) %></span>

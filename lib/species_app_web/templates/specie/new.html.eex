@@ -1,0 +1,5 @@
+<h2>New Specie</h2>
+
+<%= render "form.html", Map.put(assigns, :action, specie_path(@conn, :create)) %>
+
+<span><%= link "Back", to: specie_path(@conn, :index) %></span>
