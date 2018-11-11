@@ -51,8 +51,3 @@ config :species_app, SpeciesApp.Repo,
   database: "species_app",
   hostname: "localhost",
   pool_size: 10
-
-# Configures Guardian
-config :species_app, SpeciesApp.Auth.Guardian,
-  issuer: "species_app",
-  secret_key: "UGCTYCOW7kqsu0DHRSp9fszvTjpqVID3ZS1YO8aJxJSpwk3/zNE3o06Yq3T5Iuyw"

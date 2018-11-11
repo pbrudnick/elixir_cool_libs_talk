@@ -67,8 +67,3 @@ config :species_app, SpeciesApp.Repo,
   url: "${DATABASE_URL}",
   ssl: true,
   pool_size: 1
-
-# Configures Guardian
-config :species_app, SpeciesApp.Auth.Guardian,
-  issuer: "species_app",
-  secret_key: "UGCTYCOW7kqsu0DHRSp9fszvTjpqVID3ZS1YO8aJxJSpwk3/zNE3o06Yq3T5Iuyw"
