@@ -2,6 +2,16 @@
 
 This is a basic Phoenix `Species App` :bird: :herb: done with :heart: 
 
+## Branch logic
+In the different branches I will be adding some cool libs to my app. 
+Each branch will be incremental from the previous one in order to adding functionality to the app.
+
+ * `master` - the base [`Phoenix`](https://github.com/phoenixframework/phoenix) with species endpoints
+ * `guardian` - adds [`Guardian`](https://github.com/ueberauth/guardian) and [`Comeonin`/`Bcrypt`](https://github.com/riverrun/comeonin) for user/session
+ * `cachex` - adds [`Cachex`](https://github.com/whitfin/cachex) for caching API responses
+ * `external_service` - adds [`ExternalService`](https://github.com/jvoegele/external_service) for circuit breaker and rate limiter on API requests
+ * `logster` - adds [`Logster`](https://github.com/navinpeiris/logster) plug for HTTP logs
+
 ## Run it!
 
   * Install dependencies with `mix deps.get`
