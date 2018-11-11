@@ -5,6 +5,7 @@ defmodule SpeciesApp.Application do
   # for more information on OTP Applications
   def start(_type, _args) do
     import Supervisor.Spec
+    import Cachex.Spec
 
     # Define workers and child supervisors to be supervised
     children = [
@@ -14,6 +15,26 @@ defmodule SpeciesApp.Application do
       supervisor(SpeciesAppWeb.Endpoint, []),
       # Start your own worker by calling: SpeciesApp.Worker.start_link(arg1, arg2, arg3)
       # worker(SpeciesApp.Worker, [arg1, arg2, arg3]),
+      %{
+        id: Cachex,
+        start:
+          {Cachex, :start_link,
+           [
+             :api_cache,
+             [
+                warmers: [
+                  warmer(module: SpeciesApp.Species.Warmer)
+                ],
+                expiration:
+                  expiration(
+                    default:
+                      :timer.seconds(31),
+                    interval: :timer.seconds(30),
+                    lazy: true
+                  )
+             ]
+           ]}
+      }
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

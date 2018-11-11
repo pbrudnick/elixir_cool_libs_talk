@@ -46,7 +46,8 @@ defmodule SpeciesApp.Mixfile do
       {:plug_cowboy, "~> 1.0"},
       {:guardian, "~> 1.0"},
       {:comeonin, "~> 4.0"},
-      {:bcrypt_elixir, "~> 1.0"}
+      {:bcrypt_elixir, "~> 1.0"},
+      {:cachex, "~> 3.1"}
     ]
   end
 

@@ -37,7 +37,8 @@ defmodule SpeciesAppWeb.Router do
     scope "/api", SpeciesAppWeb do
       pipe_through :api
 
-      get "/species", SpecieController, :get_json
+      get "/species", SpecieController, :index_json
+      get "/species/:id", SpecieController, :show_json
     end
   end
 end

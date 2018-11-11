@@ -4,8 +4,8 @@ defmodule SpeciesApp.Species do
   """
 
   import Ecto.Query, warn: false
+  require Logger
   alias SpeciesApp.Repo
-
   alias SpeciesApp.Species.Specie
 
   @doc """
@@ -18,7 +18,7 @@ defmodule SpeciesApp.Species do
 
   """
   def list_species do
-    Repo.all(Specie)
+    get_all_maybe_from_cache()
   end
 
   def list_species(%{matching: name}) when is_binary(name) do
@@ -27,7 +27,49 @@ defmodule SpeciesApp.Species do
     |> Repo.all
   end
   def list_species(_) do
-    Repo.all(Specie)
+    get_all_maybe_from_cache()
+  end
+
+  def get_all_maybe_from_cache() do
+    case Cachex.get(:api_cache, "/api/species") do
+      {:error, reason} ->
+        Logger.error(
+          "error on getting '/api/species' from api_cache with reason: #{
+            inspect(reason)
+          }"
+        )
+
+        Repo.all(Specie)
+      {:ok, nil} ->
+        Logger.info("getting species from db")
+
+        Repo.all(Specie)
+      {:ok, species} ->
+        Logger.info("getting #{length(species)} species from api_cache")
+
+        species
+    end
+  end
+
+  def get_one_maybe_from_cache!(id) when is_binary(id) do
+    case Cachex.get(:api_cache, "/api/species/#{id}") do
+      {:error, reason} ->
+        Logger.error(
+          "error on getting '/api/specie/#{id}' from api_cache with reason: #{
+            inspect(reason)
+          }"
+        )
+
+        Repo.get!(Specie, id)
+      {:ok, nil} ->
+        Logger.info("getting specie #{id} from db")
+
+        Repo.get!(Specie, id)
+      {:ok, specie} ->
+        Logger.info("getting specie #{id} from api_cache")
+
+        specie
+    end
   end
 
   @doc """
@@ -44,7 +86,7 @@ defmodule SpeciesApp.Species do
       ** (Ecto.NoResultsError)
 
   """
-  def get_specie!(id), do: Repo.get!(Specie, id)
+  def get_specie!(id), do: get_one_maybe_from_cache!(id)
 
   @doc """
   Creates a specie.

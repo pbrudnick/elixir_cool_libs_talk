@@ -33,6 +33,9 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 ### GET /api/species
 `http://localhost:4000/api/species`
 
+### GET /api/species/:id
+`http://localhost:4000/api/species/:id`
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/

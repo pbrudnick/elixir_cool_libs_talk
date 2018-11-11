@@ -9,7 +9,7 @@ defmodule SpeciesAppWeb.SpecieController do
     render(conn, "index.html", species: species)
   end
 
-  def get_json(conn, _params) do
+  def index_json(conn, _params) do
     species = Species.list_species()
     render(conn, "index.json", species: species)
   end
@@ -33,6 +33,11 @@ defmodule SpeciesAppWeb.SpecieController do
   def show(conn, %{"id" => id}) do
     specie = Species.get_specie!(id)
     render(conn, "show.html", specie: specie)
+  end
+
+  def show_json(conn, %{"id" => id}) do
+    specie = Species.get_specie!(id)
+    render(conn, "specie.json", specie: specie)
   end
 
   def edit(conn, %{"id" => id}) do
