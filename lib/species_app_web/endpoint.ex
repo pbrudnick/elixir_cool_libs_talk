@@ -35,6 +35,8 @@ defmodule SpeciesAppWeb.Endpoint do
     key: "_species_app_key",
     signing_salt: "lDD0DHGq"
 
+  plug Logster.Plugs.Logger
+
   plug SpeciesAppWeb.Router
 
   @doc """

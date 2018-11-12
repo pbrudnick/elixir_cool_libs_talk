@@ -50,7 +50,8 @@ defmodule SpeciesApp.Mixfile do
       {:cachex, "~> 3.1"},
       {:external_service, "~> 0.8.8"},
       {:httpoison, "~> 1.0"},
-      {:jason, "~> 1.1"}
+      {:jason, "~> 1.1"},
+      {:logster, "~> 0.8.0"}
     ]
   end
 
