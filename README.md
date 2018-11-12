@@ -2,6 +2,12 @@
 
 This is a basic Phoenix `Species App` :bird: :herb: done with :heart: 
 
+## How to follow the talk:
+ 1. `git clone git@github.com:pbrudnick/elixir_cool_libs_talk.git` or just `fork` it!
+ 2. `git checkout <BRANCH_NAME>` for the desired topic of the talk
+ 3. Read the README.md of each branch to know the additions and more details.
+ 4. Run it!
+
 ## Branch logic
 In the different branches I will be adding some cool libs to my app. 
 Each branch will be incremental from the previous one in order to adding functionality to the app.
@@ -9,7 +15,7 @@ Each branch will be incremental from the previous one in order to adding functio
  * `master` - the base [`Phoenix`](https://github.com/phoenixframework/phoenix) with species endpoints
  * `guardian` - adds [`Guardian`](https://github.com/ueberauth/guardian) and [`Comeonin`/`Bcrypt`](https://github.com/riverrun/comeonin) for user/session
  * `cachex` - adds [`Cachex`](https://github.com/whitfin/cachex) for caching API responses
- * `external_service` - adds [`ExternalService`](https://github.com/jvoegele/external_service) for circuit breaker and rate limiter on API requests
+ * `external_service` - adds [`ExternalService`](https://github.com/jvoegele/external_service) for circuit breaker and rate limiter on API requests for specie observations
  * `logster` - adds [`Logster`](https://github.com/navinpeiris/logster) plug for HTTP logs
 
 ## Run it!
