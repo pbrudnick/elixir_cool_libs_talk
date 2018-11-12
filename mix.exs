@@ -47,7 +47,10 @@ defmodule SpeciesApp.Mixfile do
       {:guardian, "~> 1.0"},
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},
-      {:cachex, "~> 3.1"}
+      {:cachex, "~> 3.1"},
+      {:external_service, "~> 0.8.8"},
+      {:httpoison, "~> 1.0"},
+      {:jason, "~> 1.1"}
     ]
   end
 

@@ -37,6 +37,16 @@ defmodule SpeciesApp.Application do
       }
     ]
 
+    ExternalService.start(
+      :observations_fuse,
+      # Tolerate 5 failures for every 1 second time window.
+      fuse_strategy: {:standard, 5, 1_000},
+      # Reset the fuse 5 seconds after it is blown.
+      fuse_refresh: 5_000,
+      # Limit to 100 calls per second.
+      rate_limit: {100, 1_000}
+    )
+
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: SpeciesApp.Supervisor]

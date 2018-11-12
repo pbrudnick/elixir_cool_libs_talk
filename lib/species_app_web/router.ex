@@ -39,6 +39,7 @@ defmodule SpeciesAppWeb.Router do
 
       get "/species", SpecieController, :index_json
       get "/species/:id", SpecieController, :show_json
+      get "/species/:id/observations", SpecieController, :observations_json
     end
   end
 end

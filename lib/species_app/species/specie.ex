@@ -16,6 +16,7 @@ defmodule SpeciesApp.Species.Specie do
     field :status,    :string
     field :difficulty, :integer
     field :song, :string
+    field :ebird_id, :string
 
     timestamps()
   end
@@ -23,7 +24,7 @@ defmodule SpeciesApp.Species.Specie do
   @doc false
   def changeset(specie, attrs) do
     specie
-    |> cast(attrs, [:name_es, :name_en, :name_pt, :sci_name, :picture, :active, :regions, :status, :difficulty, :song])
+    |> cast(attrs, [:name_es, :name_en, :name_pt, :sci_name, :picture, :active, :regions, :status, :difficulty, :song, :ebird_id])
     |> validate_required([:name_es, :name_en, :name_pt, :sci_name, :picture, :active])
   end
 end

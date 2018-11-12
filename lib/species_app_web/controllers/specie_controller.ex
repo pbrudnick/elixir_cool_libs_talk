@@ -40,6 +40,11 @@ defmodule SpeciesAppWeb.SpecieController do
     render(conn, "specie.json", specie: specie)
   end
 
+  def observations_json(conn, %{"id" => id}) do
+    observations = Species.get_observations(id)
+    render(conn, "observations.json", observations: observations)
+  end
+
   def edit(conn, %{"id" => id}) do
     specie = Species.get_specie!(id)
     changeset = Species.change_specie(specie)

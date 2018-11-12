@@ -17,7 +17,12 @@ defmodule SpeciesAppWeb.SpecieView do
       regions: specie.regions,
       status: specie.status,
       difficulty: specie.difficulty,
-      song: specie.song
+      song: specie.song,
+      ebird_id: specie.ebird_id
     }
+  end
+
+  def render("observations.json", %{observations: observations}) do
+    %{observations: observations}
   end
 end
